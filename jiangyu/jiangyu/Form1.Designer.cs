@@ -1,6 +1,6 @@
 ﻿namespace jiangyu
 {
-    partial class Form1
+    partial class 降雨侵蚀力计算软件
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -73,8 +73,10 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(101, 39);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(511, 21);
             this.textBox1.TabIndex = 2;
+            this.textBox1.TabStop = false;
             // 
             // openFileDialog1
             // 
@@ -96,7 +98,7 @@
             this.yearb.MaxLength = 4;
             this.yearb.Name = "yearb";
             this.yearb.Size = new System.Drawing.Size(100, 21);
-            this.yearb.TabIndex = 4;
+            this.yearb.TabIndex = 1;
             this.yearb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.yearb_KeyPress);
             // 
             // label3
@@ -123,7 +125,7 @@
             this.yeare.MaxLength = 4;
             this.yeare.Name = "yeare";
             this.yeare.Size = new System.Drawing.Size(100, 21);
-            this.yeare.TabIndex = 7;
+            this.yeare.TabIndex = 2;
             this.yeare.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.yeare_KeyPress);
             // 
             // label5
@@ -149,7 +151,7 @@
             this.qsyl.Location = new System.Drawing.Point(101, 112);
             this.qsyl.Name = "qsyl";
             this.qsyl.Size = new System.Drawing.Size(100, 21);
-            this.qsyl.TabIndex = 9;
+            this.qsyl.TabIndex = 3;
             this.qsyl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // button2
@@ -157,7 +159,7 @@
             this.button2.Location = new System.Drawing.Point(313, 376);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 12;
+            this.button2.TabIndex = 5;
             this.button2.Text = "计算";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -176,15 +178,17 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(101, 263);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(511, 21);
             this.textBox2.TabIndex = 2;
+            this.textBox2.TabStop = false;
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(642, 266);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 0;
+            this.button3.TabIndex = 4;
             this.button3.Text = "选择";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -197,7 +201,7 @@
             this.resultTxt.TabIndex = 13;
             this.resultTxt.Text = "";
             // 
-            // Form1
+            // 降雨侵蚀力计算软件
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -218,8 +222,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "降雨侵蚀力计算软件";
+            this.Text = "降雨侵蚀力计算软件";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -21,9 +21,9 @@ E:\Users\QHR\Desktop\jiangyu\jiangyu\jiangyu\jiangyu\bin\Debug\jiangyu.exe.confi
 E:\Users\QHR\Desktop\jiangyu\jiangyu\jiangyu\jiangyu\bin\Debug\jiangyu.exe
 E:\Users\QHR\Desktop\jiangyu\jiangyu\jiangyu\jiangyu\bin\Debug\jiangyu.pdb
 E:\Users\QHR\Desktop\jiangyu\jiangyu\jiangyu\jiangyu\obj\Debug\jiangyu.csprojAssemblyReference.cache
-E:\Users\QHR\Desktop\jiangyu\jiangyu\jiangyu\jiangyu\obj\Debug\jiangyu.Form1.resources
 E:\Users\QHR\Desktop\jiangyu\jiangyu\jiangyu\jiangyu\obj\Debug\jiangyu.Properties.Resources.resources
 E:\Users\QHR\Desktop\jiangyu\jiangyu\jiangyu\jiangyu\obj\Debug\jiangyu.csproj.GenerateResource.cache
 E:\Users\QHR\Desktop\jiangyu\jiangyu\jiangyu\jiangyu\obj\Debug\jiangyu.csproj.CoreCompileInputs.cache
 E:\Users\QHR\Desktop\jiangyu\jiangyu\jiangyu\jiangyu\obj\Debug\jiangyu.exe
 E:\Users\QHR\Desktop\jiangyu\jiangyu\jiangyu\jiangyu\obj\Debug\jiangyu.pdb
+E:\Users\QHR\Desktop\jiangyu\jiangyu\jiangyu\jiangyu\obj\Debug\jiangyu.降雨侵蚀力计算软件.resources
