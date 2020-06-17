@@ -120,7 +120,7 @@ namespace jiangyu
             while ((line = sr.ReadLine()) != null)
             {
 
-                String path = this.saveName + "/大于10mm的数据" + zdbh + ".txt";
+                String path = this.saveName + "/大于10mm的数据" + ".txt";
                 String[] data = line.Split('\t');
 
                 if (zdbh == "")
@@ -265,7 +265,7 @@ namespace jiangyu
         }
         private void PrintGjQslFile()
         {
-            String path = this.saveName + "/改进降雨侵蚀力" + zdbh + ".txt";
+            String path = this.saveName + "/改进降雨侵蚀力"  + ".txt";
             WriteTxtAdd(path, "站点编号或名称\t年度\tNJY\tJ1\tJ2\tJ3\tJ4\tJ5\tJ6\tJ7\tJ8\tJ9\tJ10\tJ11\tJ12\tJ13\tJ14\tJ15\tJ16\tJ17\tJ18\tJ19\tJ20\tJ21\tJ22\tJ23\tJ24\ta\tb\n");
             for (int i = 0; i < jyqsl.GetLength(0); i++)
             {
@@ -283,7 +283,7 @@ namespace jiangyu
         }
         private void PrintZsQslFile()
         {
-            String path = this.saveName + "/章氏降雨侵蚀力" + zdbh + ".txt";
+            String path = this.saveName + "/章氏降雨侵蚀力"  + ".txt";
             WriteTxtAdd(path, "站点编号或名称\t年度\tNJY\tJ1\tJ2\tJ3\tJ4\tJ5\tJ6\tJ7\tJ8\tJ9\tJ10\tJ11\tJ12\tJ13\tJ14\tJ15\tJ16\tJ17\tJ18\tJ19\tJ20\tJ21\tJ22\tJ23\tJ24\t章a\t章b\n");
             for (int i = 0; i < jyqsl.GetLength(0); i++)
             {
@@ -302,7 +302,7 @@ namespace jiangyu
         }
         private void PrintQslFile()
         {
-            String path = this.saveName + "/逐日雨量" + zdbh + ".txt";
+            String path = this.saveName + "/逐日雨量"  + ".txt";
             WriteTxtAdd(path, "站点编号或名称\t年度\tNJY\tJ1\tJ2\tJ3\tJ4\tJ5\tJ6\tJ7\tJ8\tJ9\tJ10\tJ11\tJ12\tJ13\tJ14\tJ15\tJ16\tJ17\tJ18\tJ19\tJ20\tJ21\tJ22\tJ23\tJ24\n") ;
             for (int i = 0; i < jyqsl.GetLength(0); i++)
             {
@@ -323,7 +323,7 @@ namespace jiangyu
         /// </summary>
         private void PrintoutFile()
         {
-            String path = this.saveName + "/数据统计" + zdbh + ".txt";
+            String path = this.saveName + "/数据统计"  + ".txt";
             WriteTxtAdd(path, "站点编号或名称\t年度\t年降雨量\tJ1\tJ2\tJ3\tJ4\tJ5\tJ6\tJ7\tJ8\tJ9\tJ10\tJ11\tJ12\tJ13\tJ14\tJ15\tJ16\tJ17\tJ18\tJ19\tJ20\tJ21\tJ22\tJ23\tJ24\t" +
                 "年侵蚀降雨量\tQSJ1\tQSJ2\tQSJ3\tQSJ4\tQSJ5\tQSJ6\tQSJ7\tQSJ8\tQSJ9\tQSJ10\tQSJ11\tQSJ12\tQSJ13\tQSJ14\tQSJ15\tQSJ16\tQSJ17\tQSJ18\tQSJ19\tQSJ20\tQSJ21\tQSJ22\tQSJ23\tQSJ24\t" +
                 "年侵蚀降雨天数\tQST1\tQST2\tQST3\tQST4\tQST5\tQST6\tQST7\tQST8\tQST9\tQST10\tQST11\tQST12\tQST13\tQST14\tQST15\tQST16\tQST17\tQST18\tQST19\tQST20\tQST21\tQST22\tQST23\tQST24\n");
