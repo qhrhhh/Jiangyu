@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,11 +29,11 @@ namespace jiangyu
                 textBox1.Text = openFileDialog1.FileName;
                 this.fileName = openFileDialog1.FileName;
             }
-            
+
         }
-        public void WriteTxtAdd(String path,String txt)
+        public void WriteTxtAdd(String path, String txt)
         {
-            FileStream fs = new FileStream(path, FileMode.Append,FileAccess.Write);
+            FileStream fs = new FileStream(path, FileMode.Append, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs);
             //开始写入
             sw.Write(txt);
@@ -91,7 +92,7 @@ namespace jiangyu
         /// 年份 年降雨量 24个半月降雨量 
         /// </summary>
         private double[,] yjy; //
-     
+
         /// <summary>
         /// 年侵蚀雨量 24个半月侵蚀雨量 年侵蚀降雨天数 24半月侵蚀降雨天数
         /// </summary>
@@ -103,7 +104,12 @@ namespace jiangyu
         private int yearnum = 0;
         private double[,] jyqsl;
         private double a = 0.3101;
+        private int 月份;
         private double b = 1.7265;
+        /// <summary>
+        /// 年份 月份 侵蚀降雨量
+        /// </summary>
+        private Queue<侵蚀雨量> 半月侵蚀降雨 = new Queue<侵蚀雨量>();
         private void button2_Click(object sender, EventArgs e)
         {
             //读文件
@@ -111,11 +117,11 @@ namespace jiangyu
             string line;
             //第一行略过
             line = sr.ReadLine();
-            
+
             yearnum = int.Parse(yeare.Text) - int.Parse(yearb.Text) + 1; //总年数
             yjy = new double[yearnum, 25];
             qsjy = new double[yearnum, 50];
-            jyqsl =new double[yearnum, 25];
+            jyqsl = new double[yearnum, 25];
 
             while ((line = sr.ReadLine()) != null)
             {
@@ -134,10 +140,12 @@ namespace jiangyu
                         ZsQslOut();
                         GjQslOut();
                         zdbh = data[0];
-                        WriteTxtAdd(path, line+"\n");
+                        WriteTxtAdd(path, line + "\n");
                         yjy = new double[yearnum, 25];
                         qsjy = new double[yearnum, 50];
-                        
+                        jyqsl = new double[yearnum, 25];
+                        半月侵蚀降雨 = new Queue<侵蚀雨量>();
+
                     }
                 }
                 //int beginyear = int.Parse(yearb.Text);
@@ -153,14 +161,18 @@ namespace jiangyu
                     qsjy[int.Parse(data[1]) - int.Parse(yearb.Text), 0] += double.Parse(data[4]);
                 }
                 int index = (int.Parse(data[2]) - 1) * 2 + 1;
+
                 if (int.Parse(data[3]) > 15)
+                {
                     index += 1;
+                }
                 if (double.Parse(data[4]) >= double.Parse(qsyl.Text))
                 {
                     WriteTxtAdd(path, line + "\n");
+                    半月侵蚀降雨.Enqueue(new 侵蚀雨量((int.Parse(data[1]) - int.Parse(yearb.Text)), index, double.Parse(data[4])));
                     qsjy[int.Parse(data[1]) - int.Parse(yearb.Text), index] += double.Parse(data[4]);
-                    qsjy[int.Parse(data[1]) - int.Parse(yearb.Text), 25]+=1;
-                    qsjy[int.Parse(data[1]) - int.Parse(yearb.Text), 25+index-1]+=1;
+                    qsjy[int.Parse(data[1]) - int.Parse(yearb.Text), 25] += 1;
+                    qsjy[int.Parse(data[1]) - int.Parse(yearb.Text), 25 + index - 1] += 1;
                 }
                 yjy[int.Parse(data[1]) - int.Parse(yearb.Text), index] += double.Parse(data[4]);
 
@@ -189,6 +201,42 @@ namespace jiangyu
             //}
             MessageBox.Show("计算完成");
         }
+        private void 计算半月降雨侵蚀力()
+        {
+
+        }
+        private class 侵蚀雨量
+        {
+            public int get年份()
+            {
+                return 年份1;
+            }
+            public int get月份()
+            {
+                return 月份1;
+            }
+            public double get雨量()
+            {
+                return 雨量1;
+            }
+            public int 年份1 { get; set; }
+            public int 月份1 { get; set; }
+            public double 雨量1 { get; set; }
+
+            public 侵蚀雨量()
+            {
+                年份1 = 0;
+                月份1 = 0;
+                雨量1 = 0;
+            }
+
+            public 侵蚀雨量(int y, int m, double yl)
+            {
+                年份1 = y;
+                月份1 = m;
+                雨量1 = yl;
+            }
+        }
         /// <summary>
         /// 计算降雨侵蚀力并输出
         /// </summary>
@@ -199,14 +247,23 @@ namespace jiangyu
             {
                 for (int j = 1; j < 25; j++)
                 {
-                    if (j > 4 && j < 10)
+                    if (j > 8 && j < 21)
                         a = 0.3937;
                     else
                         a = 0.3101;
                     b = 1.7265;
-                    double qsl = Math.Round(a * Math.Pow(Convert.ToDouble(qsjy[i, j]), b),4);
-                    jyqsl[i, j] = qsl;
-                    jyqsl[i, 0] += qsl;
+                    foreach(侵蚀雨量 yl in 半月侵蚀降雨)
+                    {
+                        if (yl.年份1 == i + int.Parse(yearb.Text) && yl.月份1 == j)
+                        {
+
+                            double zz = 0; zz = yl.雨量1;
+                            double qsl = Math.Round(a * Math.Pow(zz, b), 4);
+                            jyqsl[i, j] += qsl;
+                            jyqsl[i, 0] += qsl;
+                        }
+                    }
+                       
                 }
             }
             PrintQslFile();
@@ -215,7 +272,7 @@ namespace jiangyu
         {
             jyqsl = new double[yearnum, 25];
             double y = 0;
-            double d = 0;
+            double d = 0; 
             for (int i = 0; i < yearnum; i++)
             {
                 y+= qsjy[i, 0];
@@ -229,10 +286,18 @@ namespace jiangyu
             {
                 for (int j = 1; j < 25; j++)
                 {
-                   
-                    double qsl = Math.Round(a * Math.Pow(Convert.ToDouble(qsjy[i, j]), b), 4);
-                    jyqsl[i, j] = qsl;
-                    jyqsl[i, 0] += qsl;
+
+                    foreach (侵蚀雨量 yl in 半月侵蚀降雨)
+                    {
+                        if (yl.年份1 == i && yl.月份1 == j)
+                        {
+
+                            double zz = 0; zz = yl.雨量1;
+                            double qsl = Math.Round(a * Math.Pow(zz, b), 4);
+                            jyqsl[i, j] += qsl;
+                            jyqsl[i, 0] += qsl;
+                        }
+                    }
                 }
             }
             PrintZsQslFile();
@@ -255,10 +320,18 @@ namespace jiangyu
             {
                 for (int j = 1; j < 25; j++)
                 {
+                    foreach (侵蚀雨量 yl in 半月侵蚀降雨)
+                    {
+                        if (yl.年份1 == i + int.Parse(yearb.Text) && yl.月份1 == j)
+                        {
 
-                    double qsl = Math.Round(a * Math.Pow(Convert.ToDouble(qsjy[i, j]), b), 4);
-                    jyqsl[i, j] = qsl;
-                    jyqsl[i, 0] += qsl;
+                            double zz = 0; zz = yl.雨量1;
+                            double qsl = Math.Round(a * Math.Pow(zz, b), 4);
+                            jyqsl[i, j] += qsl;
+                            jyqsl[i, 0] += qsl;
+                        }
+                    }
+
                 }
             }
             PrintGjQslFile();
