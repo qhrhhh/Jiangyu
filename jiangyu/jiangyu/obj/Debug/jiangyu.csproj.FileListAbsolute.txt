@@ -27,3 +27,13 @@ E:\Users\QHR\Desktop\jiangyu\jiangyu\jiangyu\jiangyu\obj\Debug\jiangyu.csproj.Co
 E:\Users\QHR\Desktop\jiangyu\jiangyu\jiangyu\jiangyu\obj\Debug\jiangyu.exe
 E:\Users\QHR\Desktop\jiangyu\jiangyu\jiangyu\jiangyu\obj\Debug\jiangyu.pdb
 E:\Users\QHR\Desktop\jiangyu\jiangyu\jiangyu\jiangyu\obj\Debug\jiangyu.降雨侵蚀力计算软件.resources
+C:\Users\q2453\source\repos\降雨new\jiangyu\jiangyu\bin\Debug\jiangyu.exe.config
+C:\Users\q2453\source\repos\降雨new\jiangyu\jiangyu\bin\Debug\jiangyu.exe
+C:\Users\q2453\source\repos\降雨new\jiangyu\jiangyu\bin\Debug\jiangyu.pdb
+C:\Users\q2453\source\repos\降雨new\jiangyu\jiangyu\obj\Debug\jiangyu.csprojAssemblyReference.cache
+C:\Users\q2453\source\repos\降雨new\jiangyu\jiangyu\obj\Debug\jiangyu.降雨侵蚀力计算软件.resources
+C:\Users\q2453\source\repos\降雨new\jiangyu\jiangyu\obj\Debug\jiangyu.Properties.Resources.resources
+C:\Users\q2453\source\repos\降雨new\jiangyu\jiangyu\obj\Debug\jiangyu.csproj.GenerateResource.cache
+C:\Users\q2453\source\repos\降雨new\jiangyu\jiangyu\obj\Debug\jiangyu.csproj.CoreCompileInputs.cache
+C:\Users\q2453\source\repos\降雨new\jiangyu\jiangyu\obj\Debug\jiangyu.exe
+C:\Users\q2453\source\repos\降雨new\jiangyu\jiangyu\obj\Debug\jiangyu.pdb

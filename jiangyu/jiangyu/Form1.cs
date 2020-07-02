@@ -128,7 +128,7 @@ namespace jiangyu
 
                 String path = this.saveName + "/大于10mm的数据" + ".txt";
                 String[] data = line.Split('\t');
-
+                if (data[0] == "") continue;
                 if (zdbh == "")
                     zdbh = data[0];
                 else
@@ -199,6 +199,11 @@ namespace jiangyu
             //    WriteTxtAdd(this.saveName+"/降雨量.txt", outString + "\n");
             //    WriteTxtAdd(this.saveName + "/侵蚀降雨量.txt", outqsString + "\n");
             //}
+            zdbh = "";
+            yjy = new double[yearnum, 25];
+            qsjy = new double[yearnum, 50];
+            jyqsl = new double[yearnum, 25];
+            半月侵蚀降雨 = new Queue<侵蚀雨量>();
             MessageBox.Show("计算完成");
         }
         private void 计算半月降雨侵蚀力()
@@ -254,7 +259,7 @@ namespace jiangyu
                     b = 1.7265;
                     foreach(侵蚀雨量 yl in 半月侵蚀降雨)
                     {
-                        if (yl.年份1 == i + int.Parse(yearb.Text) && yl.月份1 == j)
+                        if (yl.年份1 == i  && yl.月份1 == j)
                         {
 
                             double zz = 0; zz = yl.雨量1;
@@ -322,7 +327,7 @@ namespace jiangyu
                 {
                     foreach (侵蚀雨量 yl in 半月侵蚀降雨)
                     {
-                        if (yl.年份1 == i + int.Parse(yearb.Text) && yl.月份1 == j)
+                        if (yl.年份1 == i && yl.月份1 == j)
                         {
 
                             double zz = 0; zz = yl.雨量1;
@@ -403,7 +408,7 @@ namespace jiangyu
            
             for (int i = 0; i < yjy.GetLength(0); i++)
             {
-                String outString = zdbh + "\t\t";
+                String outString = zdbh + "\t";
                 outString += (i + int.Parse(yearb.Text)).ToString() + "\t" + yjy[i, 0].ToString() + "\t";
                 String outqsString =  qsjy[i, 0].ToString() + "\t\t";
                 String outtString= qsjy[i, 25].ToString() + "\t\t";
